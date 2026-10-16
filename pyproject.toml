@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "driveguard"
+version = "0.1.0"
+description = "Lightweight, CPU-only ADAS prototype: lane departure, collision risk, traffic light and stop sign awareness"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ultralytics",
+    "opencv-python",
+    "numpy",
+    "pyyaml",
+    "supervision",
+    "trackers",
+    "psutil",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]   # lets `pytest` run from a fresh clone without installing the package first

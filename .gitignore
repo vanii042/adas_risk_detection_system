@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+*.egg-info/
+models/*
+!models/.gitkeep
+data/samples/*
+!data/samples/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.pt
+*.onnx
+*.mp4
+*.avi
+*.db

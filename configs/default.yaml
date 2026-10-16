@@ -1,0 +1,40 @@
+video:
+  max_width: 640          # frames are downscaled to this width (aspect ratio kept)
+
+detector:
+  model: models/yolo11n.pt   # nano model, pretrained on COCO; auto-downloads on first run
+  imgsz: 416
+  conf: 0.35
+  iou: 0.5
+  device: cpu
+  classes: [0, 1, 2, 3, 5, 7, 9, 11]   # person, bicycle, car, motorcycle, bus, truck, traffic light, stop sign
+
+tracker:
+  lost_track_buffer: 30   # frames a lost track is kept alive before being dropped
+
+lane:
+  # Camera-specific: the trapezoid must sit between the horizon and the bonnet. See configs/*.yaml
+  roi_top_y: 0.55
+  roi_bottom_y: 0.72
+  roi_top_half_width: 0.12
+  roi_bottom_half_width: 0.45
+
+departure:
+  camera_center_x: 0.5    # vehicle centre line as a fraction of frame width (adjust if the camera is off-centre)
+  warn_offset: 0.30       # warn when the car is this far (fraction of lane width) from the lane centre
+  clear_offset: 0.22      # ...and clear below this (hysteresis)
+
+risk:
+  # Camera-specific: the corridor must cover the road directly ahead. See configs/*.yaml
+  corridor_top_y: 0.50
+  corridor_bottom_y: 0.80
+  corridor_top_half_width: 0.06
+  corridor_bottom_half_width: 0.30
+  ttc_caution: 5.0        # seconds; TTC is a proxy from bbox growth, not metric
+  ttc_warning: 3.0
+  ttc_critical: 1.5
+
+signs:
+  enabled: true           # traffic light colour + stop sign alerts (uses the same YOLO detections)
+  stop_min_height: 0.08   # a stop sign taller than this fraction of the frame counts as "close"
+  min_votes: 3            # frames that must agree on a light colour before it is reported

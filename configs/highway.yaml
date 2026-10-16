@@ -1,0 +1,12 @@
+lane:
+  roi_top_y: 0.30
+  roi_bottom_y: 0.57
+  roi_top_half_width: 0.10
+  roi_bottom_half_width: 0.30
+  white_min_lightness: 150
+
+risk:
+  corridor_top_y: 0.30
+  corridor_bottom_y: 0.60
+  corridor_top_half_width: 0.04
+  corridor_bottom_half_width: 0.18

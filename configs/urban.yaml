@@ -1,0 +1,12 @@
+# Dashcam with a lower bonnet: lane paint is visible between ~55% and ~72% of the frame height.
+lane:
+  roi_top_y: 0.55
+  roi_bottom_y: 0.72
+  roi_top_half_width: 0.12
+  roi_bottom_half_width: 0.45
+
+risk:
+  corridor_top_y: 0.50
+  corridor_bottom_y: 0.80
+  corridor_top_half_width: 0.06
+  corridor_bottom_half_width: 0.30
